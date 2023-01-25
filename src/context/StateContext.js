@@ -4,6 +4,7 @@ import {useRouter} from 'next/router';
 const Context = createContext();
 
 export const StateContext = ( { children } ) => {
+    const teste = "Teste ApiFetchContext";
 
     // Router Data Control  #########################################################
     const router = useRouter();
@@ -26,7 +27,9 @@ export const StateContext = ( { children } ) => {
         Products: [
             {name: "product1", value: 100, qty: 10, images: ["img1", "img2", "img3"]},
             {name: "product2", value: 100, qty: 10, images: ["img1", "img2", "img3"]},
-            {name: "product3", value: 100, qty: 10, images: ["img1", "img2", "img3"]}
+            {name: "product3", value: 100, qty: 10, images: ["img1", "img2", "img3"]},
+            {name: "product4", value: 100, qty: 10, images: ["img1", "img2", "img3"]}
+
         ],
         Images: [
             {name: "image1.png", key: "123141151image.png"},
@@ -57,7 +60,8 @@ export const StateContext = ( { children } ) => {
             items,
             setItems,
             configs,
-            setConfigs
+            setConfigs,
+            teste
         }}>
         {children}
         </Context.Provider>

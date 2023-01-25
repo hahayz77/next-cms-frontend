@@ -1,9 +1,12 @@
 import { useStateContext } from "../context/StateContext";
+import { useApiFetchContext } from "@/context/ApiFetchContext";
+
 
 
 export default function Dashboard() {
     
     const { Data, components, setComponents, items, setItems, configs, setConfigs } = useStateContext();
+    const { teste } = useApiFetchContext();
 
     return (
         <>
@@ -11,16 +14,16 @@ export default function Dashboard() {
                 <div className="components inline col-span-12 md:col-span-2">
                     <header className="text-3xl font-mono bg-indigo-200">components</header>
                     <div className="h-fit md:h-screen bg-gray-100 font_items">
-                        {Object.keys(Data||{}).map( e => 
-                            <a onClick={()=> setComponents(e)}><p className={components === e ? "bg-indigo-500 transition-all duration-300 text-slate-100" : ""}>{e}</p></a> 
+                        {Object.keys(Data||{}).map( (e, index) => 
+                            <a key={index} onClick={()=> setComponents(e)}><p className={components === e ? "bg-indigo-500 transition-all duration-300 text-slate-100" : ""}>{e}</p></a> 
                         )}
                     </div>
                 </div>
                 <div className="items col-span-12 md:col-span-2">
                     <header className="text-3xl font-mono bg-indigo-200">Items</header>
                     <div className="h-fit md:h-screen bg-gray-200 font_items">
-                        {items?.map( e => 
-                            <a onClick={()=> setConfigs(e)}><p className={configs === e ? "bg-indigo-400 transition-all duration-300 text-slate-100" : ""}>{e.name}</p></a> 
+                        {items?.map( (e, index) => 
+                            <a key={index} onClick={()=> setConfigs(e)}><p className={configs === e ? "bg-indigo-400 transition-all duration-300 text-slate-100" : ""}>{e.name}</p></a> 
                         )}
                     </div>
                 </div>
