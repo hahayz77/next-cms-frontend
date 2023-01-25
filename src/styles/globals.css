@@ -26,9 +26,9 @@ body {
 }
 
 h1{
-  @apply text-6xl font-mono;
+  @apply text-5xl font-mono;
 }
 
 .font_items{
-  @apply font-mono text-xl;
+  @apply font-mono text-lg;
 }
